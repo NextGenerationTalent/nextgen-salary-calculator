@@ -733,78 +733,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ── LINKEDIN POST ── */}
-      <section className="py-16 md:py-20" style={{ background: NG.greyBg }}>
-        <div className="container max-w-3xl">
-          <div className="mb-8">
-            <span className="badge-yellow mb-4 inline-flex">Ready to Share</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-3" style={{ fontFamily: "'Syne', sans-serif", color: NG.black }}>
-              LinkedIn Post — Copy &amp; Paste
-            </h2>
-            <p className="text-base leading-relaxed" style={{ color: NG.greyDk }}>
-              Written to perform natively on LinkedIn — empowering tone, data-led, no external links,
-              and a question at the end to drive comments and reach.
-            </p>
-          </div>
-
-          <div className="card-white rounded-2xl overflow-hidden">
-            {/* Post header */}
-            <div className="flex items-center justify-between px-6 py-4" style={{ background: NG.black, borderBottom: `3px solid ${NG.yellow}` }}>
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded flex items-center justify-center font-bold text-sm"
-                  style={{ background: NG.yellow, color: NG.black, fontFamily: "'Syne', sans-serif" }}>
-                  NG
-                </div>
-                <div>
-                  <p className="text-sm font-semibold" style={{ color: NG.white }}>LinkedIn Post</p>
-                  <p className="text-xs" style={{ color: "#888" }}>Optimised for native reach — no links needed</p>
-                </div>
-              </div>
-              <button
-                onClick={handleCopy}
-                className="flex items-center gap-2 px-4 py-2 rounded text-xs font-semibold transition-all active:scale-95"
-                style={{
-                  background: copied ? NG.yellow : "rgba(248,234,52,0.12)",
-                  color: copied ? NG.black : NG.yellow,
-                  border: `1px solid ${copied ? NG.yellow : "rgba(248,234,52,0.3)"}`,
-                  fontFamily: "'Syne', sans-serif",
-                }}>
-                {copied ? (
-                  <><svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" /></svg>Copied!</>
-                ) : (
-                  <><svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" /><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" /></svg>Copy Post</>
-                )}
-              </button>
-            </div>
-
-            {/* Post body */}
-            <div className="p-6 md:p-8">
-              <pre className="whitespace-pre-wrap text-sm leading-relaxed"
-                style={{ color: NG.black, fontFamily: "'Inter', sans-serif" }}>
-                {linkedinPost}
-              </pre>
-            </div>
-          </div>
-
-          {/* Tips */}
-          <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { icon: "📌", title: "No External Links", body: "LinkedIn's 2026 algorithm reduces reach by ~60% for posts with external links. This post is 100% native — share the calculator URL in comments after engagement builds." },
-              { icon: "📊", title: "Data-Led Hook", body: "Opens with a universal question, backs it with four specific research sources. Credibility drives saves and shares — the metrics LinkedIn rewards most." },
-              { icon: "💬", title: "Drives Comments", body: "Ends with a direct, personal question. Comments are the single most powerful signal to LinkedIn's algorithm for wider distribution." },
-            ].map(tip => (
-              <div key={tip.title} className="card-white rounded-xl p-4">
-                <div className="text-xl mb-2">{tip.icon}</div>
-                <h4 className="text-xs font-bold mb-1 uppercase tracking-wide" style={{ fontFamily: "'Syne', sans-serif", color: NG.black }}>{tip.title}</h4>
-                <p className="text-xs leading-relaxed" style={{ color: NG.greyDk }}>{tip.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FOOTER ── */}
+     {/* ── FOOTER ── */}
       <footer style={{ background: NG.black, borderTop: `3px solid ${NG.yellow}` }} className="py-10">
         <div className="container flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
