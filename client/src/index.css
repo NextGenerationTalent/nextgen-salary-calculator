@@ -1,0 +1,211 @@
+/*
+ * DESIGN PHILOSOPHY: Next Generation Recruitment — Bold, Empowering, Candidate-First
+ * Brand Colours: Black #0A0A0A | White #FFFFFF | Yellow #F8EA34 | Soft Grey #ECE5E5
+ * Typography: Syne (display/headings — bold, modern) + Inter (body — clean, readable)
+ * Layout: High-contrast, editorial. Yellow as the power accent. Black as authority.
+ * Tone: Empowering, informative, professional — never accusatory.
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+:root {
+  --radius: 0.375rem;
+
+  /* ── Next Generation Brand Palette ── */
+  --ng-black:  #0A0A0A;
+  --ng-white:  #FFFFFF;
+  --ng-yellow: #F8EA34;
+  --ng-grey:   #ECE5E5;
+  --ng-grey-mid: #C8BFBF;
+  --ng-grey-dark: #6B6363;
+
+  /* Semantic mappings */
+  --background: oklch(0.98 0 0);           /* near-white page bg */
+  --foreground: oklch(0.08 0 0);           /* near-black text */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.08 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.08 0 0);
+
+  /* Primary = Black (authority, brand) */
+  --primary: oklch(0.08 0 0);
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Accent = Yellow #F8EA34 (energy, highlight) */
+  --accent: oklch(0.92 0.18 100);
+  --accent-foreground: oklch(0.08 0 0);
+
+  --secondary: oklch(0.93 0.005 20);       /* soft grey #ECE5E5 */
+  --secondary-foreground: oklch(0.25 0 0);
+  --muted: oklch(0.95 0.003 20);
+  --muted-foreground: oklch(0.45 0.005 20);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.88 0.005 20);          /* ECE5E5-ish */
+  --input: oklch(0.88 0.005 20);
+  --ring: oklch(0.92 0.18 100);            /* yellow ring */
+
+  /* Chart colours */
+  --chart-1: oklch(0.08 0 0);             /* black — mover */
+  --chart-2: oklch(0.55 0.005 20);        /* mid-grey — stayer */
+  --chart-3: oklch(0.92 0.18 100);        /* yellow — gap */
+  --chart-4: oklch(0.35 0 0);
+  --chart-5: oklch(0.75 0.005 20);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  a[href],
+  select:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .flex { min-height: 0; min-width: 0; }
+
+  @media (min-width: 640px) {
+    .container { padding-left: 2rem; padding-right: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .container { padding-left: 3rem; padding-right: 3rem; max-width: 1360px; }
+  }
+
+  /* Syne for display headings */
+  .font-display {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+  }
+
+  /* Yellow highlight pill */
+  .badge-yellow {
+    background: #F8EA34;
+    color: #0A0A0A;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Card styles */
+  .card-white {
+    background: #FFFFFF;
+    border: 1px solid #ECE5E5;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05), 0 4px 20px rgba(0,0,0,0.04);
+  }
+  .card-grey {
+    background: #ECE5E5;
+    border: 1px solid #C8BFBF;
+  }
+  .card-black {
+    background: #0A0A0A;
+    color: #FFFFFF;
+  }
+  .card-yellow {
+    background: #F8EA34;
+    color: #0A0A0A;
+  }
+
+  /* Custom range slider — yellow thumb on grey track */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3px;
+    border-radius: 2px;
+    background: #ECE5E5;
+    outline: none;
+    width: 100%;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #F8EA34;
+    cursor: pointer;
+    border: 2px solid #0A0A0A;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+    transition: transform 0.15s ease;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.12); }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #F8EA34;
+    cursor: pointer;
+    border: 2px solid #0A0A0A;
+  }
+
+  /* Animated number entrance */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-slide-up { animation: slideUp 0.45s cubic-bezier(0.16,1,0.3,1) both; }
+
+  /* Divider rule */
+  .rule-yellow {
+    height: 3px;
+    background: #F8EA34;
+    border: none;
+    border-radius: 2px;
+  }
+}
